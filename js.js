@@ -25,9 +25,15 @@ function dectohex() {
   var rem
   var test3 = ""
   var y = 0
+  
+  var testing = parseInt(input, 10);
+if (testing != input) {
+  input = "Invalid Number"
+}
 
 
-  while (input != 0) {
+
+  while (input != 0 && input != "Invalid Number") {
     rem = Math.floor(input/16)
     input = input%16
     for (x = 0; x <= 15; x++) {
@@ -42,6 +48,9 @@ function dectohex() {
 
   for (x = test3.length - 1; x >= 0; x--) {
     output = output + test3[x]
+  }
+  if (input == "Invalid Number") {
+	  output = input
   }
   
   document.getElementById("input").value = output
@@ -61,6 +70,9 @@ for (i = 0; i <= input.length - 1; i++) {
       output = output + (hexarrayconv[x][1] * Math.pow(16, i))
     }
   } 
+}
+if (document.getElementById("input").value != output && output == 0) {
+	output = "Invalid Number"
 }
 document.getElementById("input").value = output
 
