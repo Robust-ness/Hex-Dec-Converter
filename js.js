@@ -61,19 +61,25 @@ if (testing != input) {
 function hextodec() {
 	
 var output = 0;
+var truth
 
 var input = document.getElementById("input").value
-for (i = 0; i <= input.length - 1; i++) {
- for (x = 0; x <= 15; x++) {
-    if (input[input.length - 1 - i] == hexarrayconv[x][0]) {
-      console.log(hexarrayconv[x][1])
-      output = output + (hexarrayconv[x][1] * Math.pow(16, i))
-    }
-  } 
-}
-if (document.getElementById("input").value != output && output == 0) {
-	output = "Invalid Number"
-}
-document.getElementById("input").value = output
+	for (i = 0; i <= input.length - 1; i++) {
+	 for (x = 0; x <= 16; x++) {
+		 if (x != 16 && output != "Invalid Number") {
+			if (input[input.length - 1 - i] == hexarrayconv[x][0]) {
+			  console.log(hexarrayconv[x][1])
+			  output = output + (hexarrayconv[x][1] * Math.pow(16, i))
+			  truth = true
+			}
+		 }
+		 if (!truth && x == 16) {
+				output = "Invalid Number"
+			}
+	  }
+	  truth = false
+	}
+
+	document.getElementById("input").value = output
 
 }
