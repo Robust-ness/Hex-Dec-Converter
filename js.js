@@ -20,7 +20,7 @@ hexarrayconv = [
 
 function dectohex() {
   var output = ""
-  var input = document.getElementById("input").value
+  var input = document.getElementById("input").value.toUpperCase()
   //console.log(input)
   var rem
   var test3 = ""
@@ -62,8 +62,7 @@ function hextodec() {
 	
 var output = 0;
 var truth
-
-var input = document.getElementById("input").value
+var input = document.getElementById("input").value.toUpperCase()
 	for (i = 0; i <= input.length - 1; i++) {
 	 for (x = 0; x <= 16; x++) {
 		 if (x != 16 && output != "Invalid Number") {
